@@ -87,14 +87,25 @@
   <a href="contact.html">Contact</a>
 </nav>
 <main>
-  <form>
+  <form action="https://formsubmit.co/Arturs.kronentals@gmail.com" method="POST">
+    <!-- Disable captcha -->
+    <input type="hidden" name="_captcha" value="false">
+
     <h2 id="form-title"></h2>
+
+    <!-- Subject input -->
+    <label for="subject" id="label-subject"></label>
+    <input type="text" id="subject" name="subject" required>
+
     <label for="name" id="label-name"></label>
     <input type="text" id="name" name="name" required>
+
     <label for="email" id="label-email"></label>
     <input type="email" id="email" name="email" required>
+
     <label for="message" id="label-message"></label>
     <textarea id="message" name="message" rows="5" required></textarea>
+
     <button type="submit" id="submit-button"></button>
   </form>
 </main>
@@ -108,6 +119,7 @@
       headerTagline: "Your Bridge to Government & Public Sector Success",
       nav: { home: "Home", about: "About", contact: "Contact" },
       formTitle: "Contact Us",
+      subject: "Subject:",
       name: "Your Name:",
       email: "Your Email:",
       message: "Message:",
@@ -117,6 +129,7 @@
       headerTagline: "Jūsu tilts uz valdības un publiskā sektora panākumiem",
       nav: { home: "Sākums", about: "Par mums", contact: "Sazinieties" },
       formTitle: "Sazinieties ar mums",
+      subject: "Tēma:",
       name: "Vārds:",
       email: "E-pasts:",
       message: "Ziņojums:",
@@ -125,23 +138,15 @@
   };
 
   function setLanguage(lang) {
+    // Header
     document.querySelector("header p").textContent = translations[lang].headerTagline;
+
+    // Navigation
     const navLinks = document.querySelectorAll("nav a");
     navLinks[0].textContent = translations[lang].nav.home;
     navLinks[1].textContent = translations[lang].nav.about;
     navLinks[2].textContent = translations[lang].nav.contact;
-    document.getElementById("form-title").textContent = translations[lang].formTitle;
-    document.getElementById("label-name").textContent = translations[lang].name;
-    document.getElementById("label-email").textContent = translations[lang].email;
-    document.getElementById("label-message").textContent = translations[lang].message;
-    document.getElementById("submit-button").textContent = translations[lang].send;
-    localStorage.setItem("lang", lang);
-  }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const savedLang = localStorage.getItem("lang") || "en";
-    setLanguage(savedLang);
-  });
-</script>
-</body>
-</html>
+    // Form labels
+    document.getElementById("form-title").textContent = translations[lang].formTitle;
+    document.getElementById
