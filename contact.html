@@ -89,7 +89,10 @@
 </nav>
 <main>
   <form action="https://formsubmit.co/Arturs.kronentals@gmail.com" method="POST">
+    <!-- Disable captcha -->
     <input type="hidden" name="_captcha" value="false">
+    <!-- Redirect to thankyou page -->
+    <input type="hidden" name="_next" value="https://procurement.lv/thankyou.html">
 
     <h2 id="form-title"></h2>
 
@@ -152,7 +155,7 @@
 
     // Form labels & placeholders
     document.getElementById("form-title").textContent = translations[lang].formTitle;
-    
+
     document.getElementById("label-subject").textContent = translations[lang].subject;
     document.getElementById("subject").placeholder = translations[lang].subject;
 
